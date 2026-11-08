@@ -14,3 +14,9 @@ CREATE TABLE users (
     deleted_at    TIMESTAMPTZ
 );
 
+
+--Select all users froms users table
+SELECT * FROM users;
+
+--Insert into user into users table
+INSERT INTO users (firstname, lastname, ident_number, email, password) VALUES ('Joaquinn', 'Ayala', '5689232312238', 'juaqwen@mail.com', '123123') ;
