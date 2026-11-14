@@ -8,10 +8,12 @@
 </head>
 <body>
     <h3>Login user form</h3>
-    <label>E-mail:</label><br>
-    <input type="text"><br><br>
-    <label>Password:</label><br>
-    <input type="text"><br><br>
-    <button>Confirm</button>
+    <form name="login-form" action="signin.php" method="POST">
+        <label>E-mail:</label><br>
+        <input type="email" name="email" placeholder="example@correo.com" required><br><br> 
+        <label>Password:</label><br>
+        <input type="password" name="pswd" required><br><br>
+        <button>Login</button>
+    </form>
 </body>
 </html>

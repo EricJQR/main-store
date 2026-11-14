@@ -43,13 +43,13 @@ $supa_conn = pg_connect(
 if (!$local_conn) {
         die("Error local connection <br>");
 }else{
-    echo "Success database local connection <br>";
+    //echo "Success database local connection <br>";
 }
 
 
 if (!$supa_conn) {
         die("Error supa connection <br>");
 }else{
-    echo "Success database supa connection <br>";
+    //echo "Success database supa connection <br>";
 }
-?>
+?> 
