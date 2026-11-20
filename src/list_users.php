@@ -2,12 +2,20 @@
 /*
     Use this URL to print data in browser:
     http://localhost:80/main-store/src/list_users.php
-    */
-    include('../settings/database.php');
-    
-    //Get data from users table
+*/
+    session_start();
+    if(!isset($_SESSION['user_id'])){
+        header('refresh:0;url=signin.html');
+    exit();
+}
 
-    $sql="
+
+
+include('../settings/database.php');
+    
+//Get data from users table
+
+$sql = "
         select 
 	        id,
 	        firstname ||' '|| lastname as fullname,
@@ -19,7 +27,7 @@
 	        users;
     ";
 
-    $res = pg_query($local_conn, $sql);
+$res = pg_query($local_conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +43,11 @@
     </head>
     
     <body>
+        <select>
+            <option>List all users</option>
+            <option>List active users only</option>
+            <option>List inactive users only</option>
+        </select>
         <table class="table table-striped">
             <tr>
                 <th>Photo</th>
@@ -66,9 +79,19 @@
                     <a href="delete_user.php?userID=<?= $row['id']?>">
                         <img src="icons/delete.png" alt="Delete user" width="20">
                     </a>
+                    <a href="update_user_status.php?userID=<?= $row['id']?>&userStatus=<?=$row['status']?>">
+                        <?php
+                        if ($row['status'] == 'Active'){
+                            echo "<img src='icons/disable.png' alt='Inactive user' width='20'>";
+                        }else{
+                            echo "<img src='icons/enable.png' alt='Active user' width='20'>";
+                        }
+                        ?>
+                    </a>
                 </td>
             </tr>
             <?php } ?>
         </table>
+        <a href="home.php">Go to home</a>
     </body>
 </html>
