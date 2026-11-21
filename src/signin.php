@@ -1,41 +1,59 @@
 <?php
-//Get database conecttion
+// Get database connection
 include('../settings/database.php');
 
 session_start();
-if (!isset($_SESSION['user_id'])){
-    header('refresh:0;url=signin.html');
-}else{
-    header('refresh;0;url=home.php');
-}
 
-//Get payload from frontend
+// Get payload from frontend
 $email = $_POST['email'];
-$passwd = MD5($_POST['pswd']); 
+$passwd_form = $_POST['pswd'];
 
-$sql_check_email = "
-    SELECT
-        id,
-        firstname,
-        lastname,
-        email,
-        url_photo
-    FROM    
-        users 
-    WHERE 
-        email = '$email' and
-        password = '$passwd'
+// Get password from database
+$sql_get_password = "
+    SELECT password
+    FROM users
+    WHERE email = '$email'
 ";
-$res = pg_query($local_conn, $sql_check_email);
-$total = pg_num_rows($res);
+
+$res = pg_query($local_conn, $sql_get_password);
 $row = pg_fetch_assoc($res);
-    
-if($total > 0 ){
-    $_SESSION ['user_id'] = $row ['id'];
-    $_SESSION ['user_firstname'] = $row ['firstname'];
-    $_SESSION ['user_lastname'] = $row ['lastname'];
-    header ('refresh:0;url=home.php');
-}else{
-    echo "<script>alert('Invalid email or password. Try again!')</script>";
-    header('refresh:0;url=signin.html'); 
+
+if ($row) {
+
+    $passwd_db = $row['password'];
+
+    // Verify password
+    $passwd = password_verify($passwd_form, $passwd_db);
+
+    if ($passwd) {
+
+        // Get user information
+        $sql_check_email = "
+            SELECT
+                id,
+                firstname,
+                lastname,
+                email,
+                url_photo
+            FROM users
+            WHERE email = '$email'
+        ";
+
+        $res = pg_query($local_conn, $sql_check_email);
+        $row = pg_fetch_assoc($res);
+
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user_firstname'] = $row['firstname'];
+        $_SESSION['user_lastname'] = $row['lastname'];
+
+        header('Location: home.php');
+        exit();
+
+    } else {
+        echo "Invalid password.";
+    }
+
+} else {
+    echo "User not found.";
 }
+?>

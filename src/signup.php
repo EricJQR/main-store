@@ -1,6 +1,6 @@
 <?php
     //Get database conecttion
-    include('../settings/database.php');
+    require('../settings/database.php');
 
     //Get payload from frontend
     $first_name = $_POST['fname'];
