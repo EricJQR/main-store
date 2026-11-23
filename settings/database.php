@@ -22,7 +22,7 @@ $local_conn = pg_connect(
 
 
 //Supa conecction
-$supa_host = "aws-1-ca-central-1.pooler.supabase.com";
+/*$supa_host = "aws-1-ca-central-1.pooler.supabase.com";
 $supa_port = "6543";
 $supa_dbname = "postgres";
 $supa_user = "postgres.vsibrjwgrrenpugcgjdq";
@@ -36,7 +36,7 @@ $supa_conn = pg_connect(
         user=$supa_user
         password=$supa_password
 "
-);
+);*/
 
 
 
@@ -47,9 +47,9 @@ if (!$local_conn) {
 }
 
 
-if (!$supa_conn) {
+/*if (!$supa_conn) {
         die("Error supa connection <br>");
 }else{
     //echo "Success database supa connection <br>";
-}
+}*/
 ?> 
