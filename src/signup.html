@@ -5,26 +5,125 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Main Store-Register user</title>
         <link rel="icon" type="image/png" href="icons/main_store_icon.png">
+
+        <style>
+
+            body{
+                background-color: #F4F7FB;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px 15px;
+            }
+            
+            .container{
+                width: 100%;
+                max-width: 420px;
+                margin: 20px auto;
+                padding: 30px;
+                box-sizing: border-box;
+                background-color: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+
+            .logo{
+                display: block;
+                width: 140px;
+                height: 115px;
+                object-fit: contain;
+                margin: 0 auto 10px;
+            }
+
+            h2{
+                color: #142D4E;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .subtitle{
+                color: #777777;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            label{
+                display: block;
+                color: #142D4E;
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+
+            input{
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #D5DDE8;
+                border-radius: 6px;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+            }
+
+            input:focus{
+                outline: none;
+                border-color: #2878C8;
+            }
+
+            button{
+                width: 100%;
+                padding: 13px;
+                background-color: #2878C8;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            button:hover{
+                background-color: #142D4E;
+            }
+
+            .back-link{
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+                color: #2878C8;
+                text-decoration: none;
+            }
+
+            .back-line:hover{
+                text-decoration: underline;
+            }
+            
+        </style>
+
     </head>
     <body>
-        <center>
-        <h3>Register user form</h3>
+        <!--<center>-->
+        <div class="container">
+
+            <a href="/main-store/">
+                <img src="icons/main_store_logo.png" alt="Main Store Logo" class="logo"></a>
+
+        <h2>Create account</h2>
+        <p class= "subtitle"> Join Main Store today! </p>
         <form name="register-form" action="signup.php" method="post">
-            <label>Firstname:</label><br>
-            <input type="text" name="fname" required><br><br>
-            <label>Lastname:</label><br>
-            <input type="text" name="lname" required><br><br> 
-            <label>Identification number:</label><br>
-            <input type="text" name="idnumber" required><br><br> 
-            <label>Mobile phone:</label><br>
-            <input type="text" name="mphone" required><br><br>
-            <label>E-mail:</label><br>
-            <input type="email" name="email" placeholder="example@correo.com" required><br><br> 
-            <label>Password:</label><br>
-            <input type="password" name="pswd" required><br><br>  
-            <button>Register</button>
+            <label>Firstname:</label>
+            <input type="text" name="fname" required><br>
+            <label>Lastname:</label>
+            <input type="text" name="lname" required><br> 
+            <label>Identification number:</label>
+            <input type="text" name="idnumber" required><br>
+            <label>Mobile phone:</label>
+            <input type="text" name="mphone" required><br>
+            <label>E-mail:</label>
+            <input type="email" name="email" placeholder="example@correo.com" required><br>
+            <label>Password:</label>
+            <input type="password" name="pswd" required><br>
+            <button type="submit">Register</button>
         </form>
-        </center>
-    
+        <!--</center>-->
+        <a href= "https://127.0.0.1/main-store/" class = "back-link">Back to Main Store </a>
+    </div>
     </body>
 </html>

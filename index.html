@@ -6,11 +6,119 @@
     <title>Main Store</title>
     <link rel="icon" type="image/png" href="src/icons/main_store_icon.png">
 
+    <style>
+        body{
+            background-color: #F4F7FB;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            width: 90%;
+            max-width: 450px;
+            background-color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .container a{
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px 35px;
+            margin: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .logo{
+            width: 220px;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        h1{
+            color: #142D4E;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle{
+            color: #777777;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .buttons a{
+            flex: 1;
+            text-decoration: none;
+            padding: 14px 15px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .signin{
+            background-color: #142D4E;
+            color: white;
+        }
+
+        .signup{
+            background-color: #2878C8;
+            color: white;
+        }
+
+        .buttons a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 25px;
+            }
+
+        .logo{
+            width: 180px;
+            height: 180px;
+        }
+
+        h1{
+            font-size: 23px;
+        }
+        }
+        
+    </style>
+
 </head>
 <body>
-    <center>
-    <a href="src/signin.html">Sign in</a>
-    <a href="src/signup.html">Sign up</a>
-    </center>    
+    <!--<center>-->
+        <div class ="container">
+
+            <img src="src/icons/main_store_logo.png" alt="Main Store Logo" class="logo">
+            
+            <br><br><h1>Welcome to Main Store</h1><br>
+
+
+            <div class="buttons">
+            <a href= "src/signin.html" class= "signin" >Sign in</a>
+            <a href= "src/signup.html" class= "signup" >Sign up</a>
+            </div>
+        </div>
+    <!--</center>-->    
 </body>
 </html>

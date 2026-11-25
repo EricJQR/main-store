@@ -5,17 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Store-Login user</title>
     <link rel="icon" type="image/png" href="icons/main_store_icon.png">
+
+    <style>
+
+        body {
+            background-color: #F4F7FB;
+            font-family: Arial, sans-serif;
+        }
+
+        .container{
+            width: 350px;
+            margin: 60px auto;
+            padding: 35px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0 , 0.08);
+            text-align: center;
+        }
+
+        .logo{
+            display:block;
+            width: 160px;
+            height: 140px;
+            object-fit: contain;
+            margin: 0 auto 10px;
+        }
+
+        h2{
+            color: #142D4E;
+            margin-bottom: 25px;
+        }
+
+        p{
+            color: #777777;
+            margin-bottom: 25px;
+        }
+
+        label{
+            display: block;
+            text-align: left;
+            color: #142D4E;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #D5DDE8;
+            border-radius: 6px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        input:focus{
+            outline: none;
+            border-color: #2878C8;
+        }
+
+        button{
+            width: 100%;
+            padding: 13px;
+            background-color: #2878C8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #142D4E;
+        }
+
+        .back-link{
+            display: inline-block;
+            margin-top: 20px;
+            color: #2878C8;
+            text-decoration: none;
+        }
+
+        .back-link:hover{
+            text-decoration: underline;
+        }
+
+    </style>
+
+
 </head>
 <body>
-    <center>
-    <h3>Login user form</h3>
-    <form name="login-form" action="signin.php" method="POST">
-        <label>E-mail:</label><br>
-        <input type="email" name="email" placeholder="example@correo.com" required><br><br> 
-        <label>Password:</label><br>
-        <input type="password" name="pswd" required><br><br>
+    <!--<center>-->
+    <div class = "container">
+
+        <a href="/main-store/">
+            <img src="icons/main_store_logo.png" alt="Main Store Logo" class="logo"> </a>
+
+        <h2>Welcome back!</h2>
+        <p>Login to Main Store account</p>
+        <!--<h3>Login user form</h3>-->
+        <form name="login-form" action="signin.php" method="POST">
+        <label>E-mail:</label>
+        <input type="email" name="email" placeholder="example@correo.com" required><br>
+        <label>Password:</label>
+        <input type="password" name="pswd" placeholder="Enter your password" required><br>
         <button>Login</button>
     </form>
-    </center>
+    <!--</center>-->
+    <a href= "https://127.0.0.1/main-store" class= "back-link"> Back to Main Store</a>
+    </div>
 </body>
 </html>

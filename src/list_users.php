@@ -12,7 +12,7 @@
 
 
 include('../settings/database.php');
-    
+
 //Get data from users table
 
 $sql = "
@@ -26,6 +26,7 @@ $sql = "
         from 
 	        users;
     ";
+    
 
 $res = pg_query($local_conn, $sql);
 ?>
